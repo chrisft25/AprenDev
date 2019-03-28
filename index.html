@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AprenDev</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Apren.dev</h2>
+<div id="container" style="width:800px;height:600px;border:1px solid grey"></div>
+<select onchange="lenguajes()" name="lenguajes" id="lenguajes">
+	<option value="html" selected>HTML</option>
+	<option value="php">PHP</option>
+	<option value="javascript">Javascript</option>
+
+</select>
+<select onchange="temas()" name="temas" id="temas">
+	<option value="vs-dark" selected>Dark</option>
+	<option value="vs">Light</option>
+	<option value="hc-black">Contraste alto</option>
+</select>
+
+<button onclick="alert(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n')); monaco.editor.getModels()[0].setValue(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n').replace(/(\\n)/gm,'\n'));">Prueba</button>
+<button onclick="test()">Retornar valor</button>
+<input type="text" name="resultado" id="resultado" value="Prueba"/>
+
+<script src="node_modules/monaco-editor/min/vs/loader.js"></script>
+<script>
+		$("#lenguajes").val('html');
+		$("#temas").val('vs-dark');
+		$("#resultado").val("");
+		
+
+	require.config({ paths: { 'vs': 'node_modules/monaco-editor/min/vs' }});
+
+	require(['vs/editor/editor.main'], function() {
+		var editor = monaco.editor.create(document.getElementById('container'), {
+			value: '<html>\n\n</html>',
+			language: 'html',
+			theme: 'vs-dark'
+		});
+	});
+
+	function temas(){
+		var e = document.getElementById("temas");
+		var tema = e.options[e.selectedIndex].value;
+		monaco.editor.setTheme(tema);
+	}
+
+	function lenguajes(){
+		var e = document.getElementById("lenguajes");
+		var lenguaje = e.options[e.selectedIndex].value;
+		monaco.editor.setModelLanguage(window.monaco.editor.getModels()[0], lenguaje);
+		switch(e.options[e.selectedIndex].value){
+			case "php":
+			monaco.editor.getModels()[0].setValue('<?php\nfunction suma($a,$b){\n\n}\n?>');
+			break;
+
+			case "javascript":
+			monaco.editor.getModels()[0].setValue("function suma(a,b){\n\n}");
+			break;
+
+			case "html":
+			monaco.editor.getModels()[0].setValue('<html>\n\n</html>');
+			break;
+		}
+		
+	}
+
+	function test(){
+		var code =monaco.editor.getModels()[0].getValue().replace(/(\r\n|\n|\r)/gm,'');
+		$.ajax({
+        type: "POST",
+        url: 'test.php',
+        data: {code:code},
+        success: handleData,
+    });
+
+	}
+
+	function handleData(data) {
+    document.getElementById('resultado').value=data;
+}
+
+</script>
+</body>
+</html>
+
+
