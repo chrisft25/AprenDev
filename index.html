@@ -22,20 +22,20 @@
 	<option value="hc-black">Contraste alto</option>
 </select>
 
-<button onclick="alert(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n')); monaco.editor.getModels()[0].setValue(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n').replace(/(\\n)/gm,'\n'));">Prueba</button>
+<!-- <button onclick="alert(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n')); monaco.editor.getModels()[0].setValue(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n').replace(/(\\n)/gm,'\n'));">Prueba</button> -->
 <button onclick="test()">Retornar valor</button>
-<input type="text" name="resultado" id="resultado" value="Prueba"/>
+<input type="text" name="resultado" id="resultado"/>
 
 <script src="node_modules/monaco-editor/min/vs/loader.js"></script>
 <script>
-		$("#lenguajes").val('html');
-		$("#temas").val('vs-dark');
-		$("#resultado").val("");
-		
+		document.getElementById('resultado').value=null;
+		document.getElementById('lenguajes').selectedIndex=null;
+		document.getElementById('temas').selectedIndex=null;
 
 	require.config({ paths: { 'vs': 'node_modules/monaco-editor/min/vs' }});
 
 	require(['vs/editor/editor.main'], function() {
+		//Inicializamos el editor en lenguaje HTML y con un texto que contiene las etiquetas iniciales
 		var editor = monaco.editor.create(document.getElementById('container'), {
 			value: '<html>\n\n</html>',
 			language: 'html',
@@ -44,18 +44,18 @@
 	});
 
 	function temas(){
-		var e = document.getElementById("temas");
-		var tema = e.options[e.selectedIndex].value;
-		monaco.editor.setTheme(tema);
+		var e = document.getElementById("temas"); //Selecciona el select con id "Temas"
+		var tema = e.options[e.selectedIndex].value; //Recibe el valor seleccionado
+		monaco.editor.setTheme(tema); //Establece el tema, según lo seleccionado
 	}
 
 	function lenguajes(){
-		var e = document.getElementById("lenguajes");
-		var lenguaje = e.options[e.selectedIndex].value;
-		monaco.editor.setModelLanguage(window.monaco.editor.getModels()[0], lenguaje);
-		switch(e.options[e.selectedIndex].value){
+		var e = document.getElementById("lenguajes"); //Selecciona el select con id "Lenguajes"
+		var lenguaje = e.options[e.selectedIndex].value; //Recibe el valor seleccionado
+		monaco.editor.setModelLanguage(window.monaco.editor.getModels()[0], lenguaje); //Establece el lenguaje, según lo seleccionado
+		switch(lenguaje){
 			case "php":
-			monaco.editor.getModels()[0].setValue('<?php\nfunction suma($a,$b){\n\n}\n?>');
+			monaco.editor.getModels()[0].setValue('<?php\nfunction suma($a,$b){\n\n}\n?>'); //Modifica el texto del editor, según el lenguaje
 			break;
 
 			case "javascript":
@@ -70,18 +70,18 @@
 	}
 
 	function test(){
-		var code =monaco.editor.getModels()[0].getValue().replace(/(\r\n|\n|\r)/gm,'');
+		var code =monaco.editor.getModels()[0].getValue().replace(/(\r\n|\n|\r)/gm,''); //Eliminamos todos los espacios, saltos de linea,etc del valor
 		$.ajax({
         type: "POST",
-        url: 'test.php',
-        data: {code:code},
-        success: handleData,
+        url: 'test.php', //lo enviamos a test.php para evaluar
+        data: {code:code}, //se envía el valor ya formateado
+        success: handleData, //al realizarse correctamente, llama a la función handleData
     });
 
 	}
 
 	function handleData(data) {
-    document.getElementById('resultado').value=data;
+    document.getElementById('resultado').value=data; //Muestra el resultado de la función escrita en el editor en un input
 }
 
 </script>
