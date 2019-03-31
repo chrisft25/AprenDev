@@ -12,22 +12,34 @@
 <body>
 
 <h2>Apren.dev</h2>
-<div id="container" style="width:800px;height:600px;border:1px solid grey"></div>
-<select onchange="lenguajes()" name="lenguajes" id="lenguajes">
-	<option value="html" selected>HTML</option>
-	<option value="php">PHP</option>
-	<option value="javascript">Javascript</option>
-
-</select>
-<select onchange="temas()" name="temas" id="temas">
-	<option value="vs-dark" selected>Dark</option>
-	<option value="vs">Light</option>
-	<option value="hc-black">Contraste alto</option>
-</select>
-
-<!-- <button onclick="alert(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n')); monaco.editor.getModels()[0].setValue(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n').replace(/(\\n)/gm,'\n'));">Prueba</button> -->
-<button onclick="test()">Retornar valor</button>
-<input type="text" name="resultado" id="resultado"/>
+<div class="container">
+		<div class="row" >
+			<div class="col-lg-4" style="width:800px;height:600px;border:1px solid grey">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic perferendis iste unde voluptas enim quos mollitia labore beatae debitis? Eveniet nulla doloremque voluptate, mollitia iste pariatur magni placeat. Facilis, dolores?</p>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione modi nam autem, assumenda recusandae quam? Aperiam, nesciunt nihil accusantium dolor suscipit inventore porro sunt eaque qui, expedita facere nulla quas.</p>
+				<code>Ejemplo de codigo</code>
+			</div>
+			<div class="col-lg-8">
+				<div id="container" style="width:800px;height:600px;border:1px solid grey"></div>
+			<select onchange="lenguajes()" name="lenguajes" id="lenguajes">
+				<option value="html" selected>HTML</option>
+				<option value="php">PHP</option>
+				<option value="javascript">Javascript</option>
+			
+			</select>
+			<select onchange="temas()" name="temas" id="temas">
+				<option value="vs-dark" selected>Dark</option>
+				<option value="vs">Light</option>
+				<option value="hc-black">Contraste alto</option>
+			</select>
+			
+			<!-- <button onclick="alert(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n')); monaco.editor.getModels()[0].setValue(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n').replace(/(\\n)/gm,'\n'));">Prueba</button> -->
+			<button onclick="test()">Retornar valor</button>
+			<input type="text" name="resultado" id="resultado"/>
+			</div>
+		</div>
+		</div>
+	
 
 <script src="node_modules/monaco-editor/min/vs/loader.js"></script>
 <script>
