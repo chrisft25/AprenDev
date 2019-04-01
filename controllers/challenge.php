@@ -11,7 +11,7 @@ function insertchallenge($title,$content,$example,$test1,$test2,$test3){
 }
 
 function insertfooter(){
-    require('views/footer.html');
+    require('views/footer.php');
 }
 
 }
