@@ -136,11 +136,11 @@
                             <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul class="mobile-menu-nav">
-                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
-                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">Soluciones <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
-                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">Borradores <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
-                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">Leaderboard <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
-                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
+                                        <li><a data-toggle="collapse" data-target="#Charts" href="index.php?challenge=1">Challenge 1<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
+                                        <li><a data-toggle="collapse" data-target="#Charts" href="index.php?challenge=2">Challenge 2<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
+                                        <li><a data-toggle="collapse" data-target="#Charts" href="index.php?challenge=3">Challenge 3<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
+                                        <li><a data-toggle="collapse" data-target="#Charts" href="index.php?challenge=4">Challenge 4<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
+                                        <li><a data-toggle="collapse" data-target="#Charts" href="index.php?challenge=5">Challenge 5<span class="admin-project-icon nalika-icon nalika-down-arrow"></span></a></li>
                                     </ul>
                                 </nav>
                             </div>
