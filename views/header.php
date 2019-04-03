@@ -9,7 +9,7 @@
     <meta name="author" content="AllisonCode">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <link href="css/roboto.css" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/nalika-icon.css">
@@ -33,7 +33,7 @@
             </div>
 			<div class="nalika-profile">
 				<div class="profile-dtl">
-					<a href="#"><img src="http://coolspotters.com/files/photos/665779/jon-snow-popover.jpg?1357440725" alt="" /></a>
+					<a href="#"><img src="img/jon-snow.jpg" alt="" /></a>
 					<h2>Jon <span class="min-dtn">Snow</span></h2>
 				</div>
 				<div class="profile-social-dtl">
