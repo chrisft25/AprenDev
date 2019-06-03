@@ -63,13 +63,49 @@
     
         function test(){
             var code =monaco.editor.getModels()[0].getValue().replace(/(\r\n|\n|\r)/gm,""); //Eliminamos todos los espacios, saltos de linea,etc del valor
+            var idReto=document.getElementById("idReto").value;
+            var idPrueba1=document.getElementById("idPrueba1").value;
+            var idPrueba2=document.getElementById("idPrueba2").value;
+            var idPrueba3=document.getElementById("idPrueba3").value;
+            
             $.ajax({
             type: "POST",
             url: "test.php", //lo enviamos a test.php para evaluar
-            data: {code:code}, //se envía el valor ya formateado
-            success: handleData, //al realizarse correctamente, llama a la función handleData
+            data: {code:code,idPrueba:idPrueba1,idReto}, //se envía el valor ya formateado
+            success: function(data){
+                if(data=="1"){
+                document.getElementById("test1").innerHTML= " Correcto"
+                }else{
+                document.getElementById("test1").innerHTML= " Incorrecto"
+            }
+            },
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "test.php", //lo enviamos a test.php para evaluar
+            data: {code:code,idReto,idPrueba:idPrueba2}, //se envía el valor ya formateado
+            success: function(data){
+                if(data=="1"){
+                document.getElementById("test2").innerHTML= " Correcto"
+                }else{
+                document.getElementById("test2").innerHTML= " Incorrecto"
+            }
+            },
         });
     
+        $.ajax({
+            type: "POST",
+            url: "test.php", //lo enviamos a test.php para evaluar
+            data: {code:code,idReto,idPrueba:idPrueba3}, //se envía el valor ya formateado
+            success: function(data){
+                if(data=="1"){
+                document.getElementById("test3").innerHTML= " Correcto"
+                }else{
+                document.getElementById("test3").innerHTML= " Incorrecto"
+            }
+            },
+        });
         }
     
         function handleData(data) {

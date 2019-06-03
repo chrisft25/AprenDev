@@ -51,7 +51,7 @@
                             <a href="index.php?challenge=1">
 								   <i class="fa fa-book"></i>
 								   <span class="mini-click-non">Challenge 1</span>
-								</a>
+							</a>
                            
                         </li>
                         <li>

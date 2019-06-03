@@ -1,4 +1,8 @@
 <div class="container-fluid">
+<input type="hidden" id="idReto" value="<?php echo $idReto;?>"/>
+<input type="hidden" id="idPrueba1" value="<?php echo $idPrueba1;?>"/>
+<input type="hidden" id="idPrueba2" value="<?php echo $idPrueba2;?>"/>
+<input type="hidden" id="idPrueba3" value="<?php echo $idPrueba3;?>"/>
             <div class="row" style="display:flex">
                 <div class="col-12 col-lg-4" style="display:flexbox">
                     <div style="overflow-y:scroll;width:100%;height:100%;border:1px solid white;background-color:white;text-align:center">
@@ -34,13 +38,13 @@
                             <div class="panel-heading" role="tab" id="questionOne">
                             <h5 class="panel-title">
                             <a data-toggle="collapse" data-parent="#faq" href="#answerOne" aria-expanded="false" aria-controls="answerOne">
-                            Test 1
+                            Test 1 - <?php echo $test1; ?> <a id="test1"></a>
                             </a>
                             </h5>
                             </div>
                             <div id="answerOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionOne">
                             <div class="panel-body">
-                            <?php echo $test1; ?>
+                            <?php echo $output1; ?>
                             </div>
                             </div>
                             </div>
@@ -48,14 +52,14 @@
                             <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="questionTwo">
                             <h5 class="panel-title">
-                            <a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerTwo" aria-expanded="false" aria-controls="answerTwo">
-                            Test 2
+                            <a  class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerTwo" aria-expanded="false" aria-controls="answerTwo">
+                            Test 2 - <?php echo $test2; ?> <a id="test2"></a>
                             </a>
                             </h5>
                             </div>
                             <div id="answerTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionTwo">
                             <div class="panel-body">
-                            <?php echo $test2; ?>
+                            <?php echo $output2; ?>
                             </div>
                             </div>
                             </div>
@@ -63,13 +67,13 @@
                                     <div class="panel-heading" role="tab" id="questionThree">
                                     <h5 class="panel-title">
                                     <a class="collapsed" data-toggle="collapse" data-parent="#faq" href="#answerThree" aria-expanded="false" aria-controls="answerThree">
-                                    Test 3
+                                    Test 3 - <?php echo $test3; ?> <a id="test3"></a>
                                     </a>
                                     </h5>
                                     </div>
                                     <div id="answerThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="questionThree">
                                     <div class="panel-body">
-                                    <?php echo $test3; ?>
+                                    <?php echo $output3; ?>
                                     </div>
                                     </div>
                                     </div>
