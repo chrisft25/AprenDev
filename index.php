@@ -8,7 +8,14 @@ $user = new User();
 $challenge->insertheader(); 
 
 if(!isset($_GET['action'])){
-    $_GET['action'] = 'challenge';
+    if(isset($_GET['user'])){
+        $_GET['action']="user";
+        if(strlen($_GET['user'])==0){
+            $_GET['user']=$_SESSION['idUsuario'];
+        }
+    }else{
+        $_GET['action']="challenge";
+    }
 }
 switch($_GET['action']){
     case 'challenge':

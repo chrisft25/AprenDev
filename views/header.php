@@ -33,7 +33,7 @@
             </div>
 			<div class="nalika-profile">
 				<div class="profile-dtl">
-					<a href="#"><img src="img/jon-snow.jpg" alt="" /></a>
+					<a href="index.php?user"><img src="images/avatar-01.jpg" alt="" /></a>
 					<h2><?php echo $_SESSION['nombreUsuario']; ?> </h2>
 				</div>
 				<div class="profile-social-dtl">
