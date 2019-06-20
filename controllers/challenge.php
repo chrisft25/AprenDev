@@ -5,6 +5,9 @@
 class Challenge {
 
 function insertheader(){
+    if(!isset($_SESSION['idUsuario'])){
+        header('Location: login.php');
+    }
     include('views/header.php');
 }
 
