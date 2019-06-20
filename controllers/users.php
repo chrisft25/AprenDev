@@ -52,6 +52,11 @@ class User {
         if(isset($_POST['idUsuario'])){
         $user->enviarAmistad(['idUsuarioP'=>$_SESSION['idUsuario'],'idUsuarioS'=>$_POST['idUsuario']]);
         }
+        echo'<script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>'; //esto es para evitar que al refrescar la página se envíe nuevamente el POST.
         $datos = $user->leerUsuario($idUsuario);
         $datos= $datos->fetch();
         $amistad = $user->verificarAmistad(['idUsuarioP'=>$_SESSION['idUsuario'],'idUsuarioS'=>$datos['idUsuario']]);

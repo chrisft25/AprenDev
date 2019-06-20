@@ -18,6 +18,8 @@
     <script src="js/jquery.meanmenu.js"></script>
     <script src="js/main.js"></script>
     <script src="node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <script src="js/main-login.js"></script>
     <script>
     $(document).ready(function() {
             document.getElementById("resultado").value=null;
