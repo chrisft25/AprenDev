@@ -8,6 +8,10 @@ function insertheader(){
     if(!isset($_SESSION['idUsuario'])){
         header('Location: login.php');
     }
+    $dbclass = new DBClass();
+    $connection = $dbclass->getConnection();
+    $challenge = new Challenge_model($connection);
+    $retos = $challenge->leerRetos();
     include('views/header.php');
 }
 

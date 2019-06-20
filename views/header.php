@@ -34,7 +34,7 @@
 			<div class="nalika-profile">
 				<div class="profile-dtl">
 					<a href="#"><img src="img/jon-snow.jpg" alt="" /></a>
-					<h2>Jon <span class="min-dtn">Snow</span></h2>
+					<h2><?php echo $_SESSION['nombreUsuario']; ?> </h2>
 				</div>
 				<div class="profile-social-dtl">
 					<ul class="dtl-social">
@@ -47,41 +47,18 @@
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
-                        <li>
-                            <a href="index.php?challenge=1">
-								   <i class="fa fa-book"></i>
-								   <span class="mini-click-non">Challenge 1</span>
+                        <?php
+                        for($i=0;$i<count($retos);$i++){
+                            $contador=$i+1;
+                        echo '<li>
+                        <a href="index.php?challenge='.$retos[$i]['idReto'].'">
+                        <i class="fa fa-book"></i>
+								   <span class="mini-click-non">Challenge '.$contador.'</span>
 							</a>
                            
-                        </li>
-                        <li>
-                                <a href="index.php?challenge=2">
-                                        <i class="fa fa-book"></i>
-                                       <span class="mini-click-non">Challenge 2</span>
-                                    </a>
-                               
-                            </li>
-                            <li>
-                                    <a href="index.php?challenge=3">
-                                           <i class="fa fa-book"></i>
-                                           <span class="mini-click-non">Challenge 3</span>
-                                        </a>
-                                   
-                            </li>
-                            <li>
-                                    <a href="index.php?challenge=4">
-                                           <i class="fa fa-book"></i>
-                                           <span class="mini-click-non">Challenge 4</span>
-                                        </a>
-                                   
-                            </li>
-                            <li>
-                                    <a href="index.php?challenge=5">
-                                           <i class="fa fa-book"></i>
-                                           <span class="mini-click-non">Challenge 5</span>
-                                        </a>
-                                   
-                            </li>
+                        </li>';
+                        }
+                        ?>
                     </ul>
                 </nav>
             </div>

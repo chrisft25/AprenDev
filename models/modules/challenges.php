@@ -17,7 +17,7 @@ class Challenge_model{
         $stmt = $this->connection->prepare($query);
         
         if($stmt->execute()){
-            return $stmt;
+            return $stmt->fetchAll();
         }else{
             return "error";
         }

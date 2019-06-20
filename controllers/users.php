@@ -10,11 +10,11 @@ class User {
     $dbclass = new DBClass();
     $connection = $dbclass->getConnection();
     $user = new User_model($connection);
-    $idUsuario= $user->loginUsuario(['email'=> $_POST['email'], 'password' => $_POST['password']]);
-    if($idUsuario!="error"){
-        echo "Logeado papú";
+    $infoUsuario= $user->loginUsuario(['email'=> $_POST['email'], 'password' => $_POST['password']]);
+    if($infoUsuario!="error"){
         session_start();
-        $_SESSION['idUsuario']=$idUsuario;
+        $_SESSION['idUsuario']=$infoUsuario['idUsuario'];
+        $_SESSION['nombreUsuario'] = $infoUsuario['nombreUsuario'];
         header('Location: index.php');
     }else{
         echo "Usuario y/o contraseña incorrectos";

@@ -23,7 +23,7 @@ class User_model{
     }
     public function loginUsuario($data){
         $password= md5($data['password']);
-        $query = "SELECT idUsuario FROM usuarios WHERE (email=:email OR username=:email) AND pass=:pass";
+        $query = "SELECT idUsuario,nombreUsuario FROM usuarios WHERE (email=:email OR username=:email) AND pass=:pass";
         $stmt = $this->connection->prepare($query);
         $stmt->bindParam(':email',$data['email']);
         $stmt->bindParam(':username',$data['email']);
@@ -32,7 +32,7 @@ class User_model{
             $cantidadResultados= $stmt->rowCount();
             if($cantidadResultados==1){
                 $idUsuario= $stmt->fetchAll();
-                return $idUsuario[0]['idUsuario'];
+                return $idUsuario[0];
             }else{
                 return "error";
             }
@@ -44,13 +44,14 @@ class User_model{
 
     public function registrarUsuario($data){
         $fecha= strval(date('Y-m-d H:i:s'));
-        $query = "INSERT INTO " . $this->table_name. "(username,nombreUsuario,expLaboral,email,pass,bioUsuario,trofeos,idRol,fechaRegistro) VALUES(:nombreUsuario,:expLaboral,:email,:password,:bioUsuario,0,2,:fechaRegistro)";
+        $password= md5($data['password']);
+        $query = "INSERT INTO " . $this->table_name. "(username,nombreUsuario,expLaboral,email,pass,bioUsuario,trofeos,idRol,fechaRegistro) VALUES(:username,:nombreUsuario,:expLaboral,:email,:password,:bioUsuario,0,2,:fechaRegistro)";
         $stmt = $this->connection->prepare($query);
         $stmt->bindParam(':username',$data['username']);
         $stmt->bindParam(':nombreUsuario',$data['nombreUsuario']);
         $stmt->bindParam(':expLaboral',$data['expLaboral']);
         $stmt->bindParam(':email',$data['email']);
-        $stmt->bindParam(':password',md5($data['password']));
+        $stmt->bindParam(':password',$password);
         $stmt->bindParam(':bioUsuario',$data['bioUsuario']);
         $stmt->bindParam(':fechaRegistro', $fecha );
         if($stmt->execute()){
