@@ -15,9 +15,9 @@
                 <div class="row">
                     <div id="container" style="width:100%; height:500px;border:1px solid white"></div>
                 <select onchange="lenguajes()" name="lenguajes" id="lenguajes">
-                    <option value="html" selected>HTML</option>
-                    <option value="php">PHP</option>
+                    <option value="php" selected>PHP</option>
                     <option value="javascript">Javascript</option>
+                    <option value="html">HTML</option>
                 
                 </select>
                 <select onchange="temas()" name="temas" id="temas">
@@ -27,8 +27,8 @@
                 </select>
                 
                 <!-- <button onclick="alert(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n')); monaco.editor.getModels()[0].setValue(monaco.editor.getModels()[0].getValue().replace(/(\n)/gm,'\\n').replace(/(\\n)/gm,'\n'));">Prueba</button> -->
-                <button onclick="test()">Retornar valor</button>
-                <input type="text" name="resultado" id="resultado"/>
+                <button class="btn btn-success" onclick="test()">Enviar</button>
+                <input type="hidden" name="resultado" id="resultado"/>
                 </div>
             <br>
             <div class="row" style="overflow-y:scroll;height:100px;">

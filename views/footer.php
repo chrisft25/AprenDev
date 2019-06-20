@@ -31,8 +31,8 @@
         require(["vs/editor/editor.main"], function() {
             //Inicializamos el editor en lenguaje HTML y con un texto que contiene las etiquetas iniciales
             var editor = monaco.editor.create(document.getElementById("container"), {
-                value: "<html>\n\n</html>",
-                language: "html",
+                value: "<?php\nfunction reto($a,$b){\n\n}\n?>",
+                language: "php",
                 theme: "vs-dark"
             });
         });
@@ -49,11 +49,11 @@
             monaco.editor.setModelLanguage(window.monaco.editor.getModels()[0], lenguaje); //Establece el lenguaje, según lo seleccionado
             switch(lenguaje){
                 case "php":
-                monaco.editor.getModels()[0].setValue("<?php\nfunction suma($a,$b){\n\n}\n?>"); //Modifica el texto del editor, según el lenguaje
+                monaco.editor.getModels()[0].setValue("<?php\nfunction reto($a,$b){\n\n}\n?>"); //Modifica el texto del editor, según el lenguaje
                 break;
     
                 case "javascript":
-                monaco.editor.getModels()[0].setValue("function suma(a,b){\n\n}");
+                monaco.editor.getModels()[0].setValue("function reto(a,b){\n\n}");
                 break;
     
                 case "html":
